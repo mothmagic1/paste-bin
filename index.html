@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DITRAY</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/1QcpS8H/pngaaa-com-4461214-1.png">
+    <!-- For older browsers -->
+    <link rel="shortcut icon" href="https://i.ibb.co/1QcpS8H/pngaaa-com-4461214-1.png">    
+<style>
+     .context {
+        color: rgb(255, 255, 255);
+        font-size: 200%;
+        font-weight: lighter;
+        position: absolute;
+        top: 1250%; /* Adjust top position as needed */
+        right: 23%;
+        padding: 0%;
+        object-fit: none;
+        width: 75%;
+        text-align: center ;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Bangers', cursive;
+        background-color: #0088ff; /* Light blue background */
+        height: 2100px;
+        width: 70%;
+        scrollbar-color: rgb(0, 0, 255);
+    }
+    .container {
+        max-width: 80%; /* Increased max-width to maintain proportional scaling */
+        margin: 0 auto;
+        padding: 24px; /* Increased padding to maintain spacing */
+        box-sizing: border-box;
+        transform: scale(1.2); /* Scale everything up by 1.2x */
+        transform-origin: top; /* Set the origin to the top */
+        position: relative; /* Make the container position relative for absolute positioning of buttons */
+        max-height: 2000px;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+    .logo img {
+        width: 100vmin; /* Set width to make the logo a square relative to the viewport */
+        height: 100vmin; /* Set height to make the logo a square relative to the viewport */
+        object-fit: none; /* Ensure logo fills the square container */
+        position: fixed; /* Use fixed positioning */
+        top: 140%; /* Position the logo at the vertical center */
+        right: 90%; /* Position the logo at the horizontal center */
+        transform: translate(50%, -50%) scale(0.65); /* Center and scale the logo */
+    }
+    .content {
+        display: flex;
+        align-items: center;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10%; /* Adjust gap between buttons as needed */
+    }
+    .connect-wallet {
+        padding: 1% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none;
+        border-radius: 50px; /* Turned buttons into circles */
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 500%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 300%; /* Adjust top position as needed */
+        right: -32%;
+        width: 47%; /* Set width and height to create a perfect circle */
+        height: 200%;
+    }
+    .button2 {
+        padding: 1% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none;
+        border-radius: 50px; /* Turned buttons into circles */
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 500%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 575%; /* Adjust top position as needed */
+        right: -32%;
+        width: 47%; /* Set width and height to create a perfect circle */
+        height: 200%;
+    }
+    .button3 {
+        padding: 1% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none;
+        border-radius: 50px; /* Turned buttons into circles */
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 500%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 850%; /* Adjust top position as needed */
+        right: -32%;
+        width: 47%; /* Set width and height to create a perfect circle */
+        height: 200%;
+    }
+    .button4 {
+        padding: 1% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none;
+        border-radius: 50px; /* Turned buttons into circles */
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 500%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 1125%; /* Adjust top position as needed */
+        right: -32%;
+        width: 47%; /* Set width and height to create a perfect circle */
+        height: 200%;
+    }
+    .connect-wallet:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); /* Scale button up by 10% on hover */
+    }
+    .button2:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); /* Scale button up by 10% on hover */
+    }
+    .button3:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); /* Scale button up by 10% on hover */
+    }
+    .button4:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); /* Scale button up by 10% on hover */
+    }
+    .circular-buttons {
+        position: absolute;
+        top: 42%; /* Adjust top position as needed */
+        right: -40%; /* Adjust right position as needed */
+        display: flex;
+        gap: 25%; /* Adjust gap between buttons as needed */
+    }
+    .circular-button {
+        width: 200%; /* Set width and height to create a perfect circle */
+        height: 200%;
+        background-color: #007bff00;
+        border-radius: 50%; /* Create a perfect circle */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 20px; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        transform: scale(0.9);
+    }
+    .circular-button:hover {
+        background-color: #0057b300;
+        transform: scale(0.6); /* Scale button up by 10% on hover */
+    }
+    img.square {
+        width: 100vmin; /* Set width to make the image a square relative to the viewport */
+        height: 100vmin; /* Set height to make the image a square relative to the viewport */
+        object-fit: none; /* Ensure image fills the square container */
+        position: fixed; /* Use fixed positioning */
+        top: 700%; /* Position the image at the vertical center */
+        left: 45%; /* Position the image at the horizontal center */
+        transform: translate(-50%, -50%); /* Center the image */
+    }
+    .intro-text {
+        font-size: 24px; /* Set font size to 24px */
+        color: rgb(255, 255, 255); /* Set text color to white */
+        object-fit: none;
+    }
+    .DITRAYht {
+        color: rgb(255, 255, 255);
+        font-size: 450%;
+        font-weight: lighter;
+        position: absolute;
+        left: 70%;
+        transform: translateX(-50%);
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    .partners {
+        color: rgb(255, 255, 255);
+        font-size: 700%;
+        font-weight: lighter;
+        position: absolute;
+        top: 1800%; /* Adjust top position as needed */
+        left: 70%;
+        transform: translateX(-50%);
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+
+    }
+    .tokenomicstitle {
+        color: rgb(255, 255, 255);
+        font-size: 600%;
+        font-weight: lighter;
+        position: absolute;
+        top: 3040%; /* Adjust top position as needed */
+        padding: 0px;
+        left: 38%;
+        transform: translateX(-50%);
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+    }
+    img.brownsplatt {
+        position: fixed;
+        top: 2100%; /* Adjust top position as needed */
+        left: -8%;
+        padding: 0;
+        margin: 0;
+        transform: scale(0.7);
+    }
+    img.brownsplatt2 {
+        position: fixed;
+        top: 2100%; /* Adjust top position as needed */
+        transform: scale(0.7);
+        left: 58%;
+        padding: 0;
+        margin: 0;
+    }
+    img.brownsplatt3 {
+        position: fixed;
+        top: 1050%; /* Adjust top position as needed */
+        transform: scale(0.6);
+        left: 70%;
+        transform: translateX(-50%);
+        padding: 0;
+        margin: 0;
+    }
+    .dexscreener {
+        object-fit: none;
+        position: absolute;
+        top: 2514%; /* Adjust top position as needed */
+        right: -15%;
+        border-radius: 70px; /* Turned buttons into circles *transition: transform 0.3s; /* Added transition for smooth scaling */
+        width: 300px; /* Set width and height to create a perfect circle */
+        height: 65px;
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+        cursor: pointer; /* Change cursor on hover */
+        background: none; /* Remove background */
+        transform: scale(1.336);
+    }
+    .dexscreener img {
+        border-radius: 80px
+    }
+    .raydium {
+        object-fit: none;
+        position: absolute;
+        top: 2493%; /* Adjust top position as needed */
+        right: -20%;
+        border-radius: 70px; /* Turned buttons into circles *transition: transform 0.3s; /* Added transition for smooth scaling */
+        width: 100%; /* Set width and height to create a perfect circle */
+        height: 100%;
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+        cursor: pointer; /* Change cursor on hover */
+        background: none; /* Remove background */
+        transform: scale(1.15);
+    }
+    .raydium img {
+        border-radius: 80px;
+    }
+    .tokenomicstext {
+        color: rgb(255, 255, 255);
+        font-size: 200%;
+        font-weight: lighter;
+        position: absolute;
+        top: 3300%; /* Adjust top position as needed */
+        right: 37%;
+        padding: 0%;
+        width: 50%;
+        text-align: center;
+    }
+    .BUYINFOtext{
+        color: rgb(255, 255, 255);
+        font-size: 200%;
+        font-weight: lighter;
+        position: absolute;
+        top: 3260%; /* Adjust top position as needed */
+        right: -28%;
+        padding: 0%;
+        width: 50%;
+        text-align: center;
+        
+    }
+    .buyinfotitle {
+        color: rgb(255, 255, 255);
+        font-size: 600%;
+        font-weight: lighter;
+        position: absolute;
+        top: 3040%; /* Adjust top position as needed */
+        right: -16%;
+        padding: 0px;
+        
+
+    }
+    .NIGGATEXT{
+        color: rgb(255, 255, 255);
+        font-size: 100%;
+        font-weight: lighter;
+        position: absolute;
+        top: 5500%; /* Adjust top position as needed */
+        right: -46%;
+        padding: 0%;
+        width: 200%;
+    }
+    img.steve1 {
+        position: absolute;
+        top: 4900%; /* Adjust top position as needed */
+        right: -14%;
+        padding: 0px;
+        transform: scale(2);
+        border-radius: 20px;
+    }
+    img.steve2 {
+        position: absolute;
+        top: 4940%; /* Adjust top position as needed */
+        right: 30%;
+        padding: 0px;
+        transform: scale(2.7);
+        border-radius: 20px;
+    }
+    img.steve3 {
+        position: absolute;
+        top: 4805%; /* Adjust top position as needed */
+        right: 55%;
+        padding: 0px;
+        transform: scale(1.27);
+        border-radius: 20px;
+    }
+    img.steve4 {
+        position: absolute;
+        top: 3900%; /* Adjust top position as needed */
+        right: 20%;
+        padding: 0px;
+        transform: scale(2.2);
+        border-radius: 50px;
+    }
+    .myinfo a button {
+        padding: 1% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none;
+        border-radius: 50px; /* Turned buttons into circles */
+        cursor: pointer;
+        transition: transform 0.3s; /* Added transition for smooth scaling */
+        font-size: 340%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 4490%; /* Adjust top position as needed */
+        right: 12%;
+        width: 35%; /* Set width and height to create a perfect circle */
+        height: 170%;
+        transform: scale(1);
+    }
+    .myinfo a button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); /* Scale button up by 10% on hover */
+    }
+    .playButton {
+        padding: 1% 1% 70% 1%; /* Increased padding to maintain button size */
+        background-color: #007bff;
+        color: rgb(255, 255, 255); /* Set text color to white */
+        border: none; /* Turned buttons into circles */
+        cursor: pointer;
+        transform: scale(3); /* Added transition for smooth scaling */
+        font-size: 500%; /* Set font size to 20px */
+        font-family: 'Bangers', cursive; /* Set font family to Bangers */
+        position: absolute;
+        top: 573%; /* Adjust top position as needed */
+        right: 3%;
+        width: 49%; /* Set width and height to create a perfect circle */
+        height: 5000%;
+        z-index: 1;
+        
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<script src="/index.js"></script>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/RC8cGhF/fwfwvu.png" alt="Logo">
+            <img src="https://i.ibb.co/y8hBZfz/Untitlrtrtred.png" class="brownsplatt">
+            <img src="https://i.ibb.co/y8hBZfz/Untitlrtrtred.png" class="brownsplatt2">
+            <img src="https://i.ibb.co/y8hBZfz/Untitlrtrtred.png" class="brownsplatt3">
+            <h1 class="DITRAYht">$DIT</h1>
+            <h2 class="context">INFO - DITRAY was born and bred in "24" aka "TROTT NATION",    If you don't buy and hold you a pussy.</h2>
+            <h3 class="partners">OUR PARTNERS</h3>
+            <h4 class="tokenomicstitle">TONKENOMICS</h4>
+            <h5 class="tokenomicstext">FUCK THIS TOKEN NOMICS SHIT JUST BUY AND HOLD IT NIGGA.</h5>
+            <h6 class="BUYINFOtext">nigga use ur brain copy this Contract Adress and figure it out :(CONTRACT_ADRESS_COMMING_SOON)</h6>
+            <h7 class="buyinfotitle">buy info</h7>
+            <audio id="audioPlayer" src="https://cdn.discordapp.com/attachments/1174640952137228339/1222148484657057812/Hardwork_Freestyle-AudioTrimmer.com.mp3?ex=66152979&is=6602b479&hm=865aa41ee950ebacc495c5b47ee36f4cce9b47e8c0c1272786d2bb856005544f&"></audio>
+            <button class="playButton" id="playButton" onclick="playAudio()">click to enter</button>
+            <script>
+                function playAudio() {
+                    var audio = document.getElementById("audioPlayer");
+                    audio.volume = (0.1);
+                    audio.loop = true; // Enable loopin
+                    audio.play();
+
+                    // Hide the button after playing
+                    var playButton = document.getElementById("playButton");
+                    playButton.style.display = 'none';
+                }
+            </script>
+    </div>
+    <div class="content">
+        <img class="square" src="https://i.ibb.co/Xp4LYjK/Untitled-removebg-preview.png" alt="Image">
+        <div class="buttons">
+            <button class="connect-wallet">connect wallet</button>
+            <button class="button2" onclick="scrollPage(140)">tokenomics</button>
+            <button class="button3" onclick="scrollPage(140)">buy info</button>
+            <button class="button4" onclick="scrollPage(80)">partners</button>
+              <script>
+                function scrollPage(percentage) {
+                  var windowHeight = window.innerHeight;
+                  var scrollAmount = (windowHeight * percentage) / 100;
+                  window.scrollBy(0, scrollAmount);
+                }
+              </script>
+              <script src="./settings.js"></script>
+              <script type="module" crossorigin src="/assets/index-B1i878ab.js"></script>
+              <link rel="stylesheet" crossorigin href="/assets/index-DUESqOEi.css">
+        </div>
+    </div>
+    <div class="circular-buttons">
+        <div class="circular-button">
+            <!-- Update href attribute with your desired URL for the first button -->
+            <a href="https://twitter.com/ditray24" target="_blank">
+                <img src="https://i.ibb.co/b3fYP5N/twitter-x-64.png" alt="Image 1">
+            </a>
+        </div>
+        <div class="circular-button">
+            <!-- Update href attribute with your desired URL for the second button -->
+            <a href="https://t.me/ditray24" target="_blank">
+                <img src="https://i.ibb.co/xs1sx9f/telegram-64.png" alt="Image 2">
+            </a>
+        </div>
+    </div> 
+    <div class="raydium">
+        <!-- Update href attribute with your desired URL for the second button -->
+        <a href="https://raydium.io/swap/" target="_blank">
+            <img src="https://i.ibb.co/b7TJNDL/image-260nw-2153303731-2.jpg" alt="Image 3">
+        </a>
+    </div>
+    <div class="dexscreener">
+        <!-- Update href attribute with your desired URL for the second button -->
+        <a href="https://dexscreener.com" target="_blank">
+            <img src="https://i.ibb.co/27bcBCb/download.png" alt="Image 4">
+        </a>
+    </div>
+</div>
+</body>
+</html>
